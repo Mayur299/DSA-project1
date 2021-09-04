@@ -123,7 +123,7 @@ int main()
     cout<<exp->get(2)<<endl;
     cout<<exp->get(4)<<endl;
     exp->set(1,10);
-    cout<<exp->get(3)<<endl;
+    
 
     return 0;
 }
