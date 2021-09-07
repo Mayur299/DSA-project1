@@ -38,8 +38,9 @@ class lru
          headn->prev=n;
          head->next=n;
 
-         
-     }
+    }
+
+
 
      ll* remove(ll*n)
      {
@@ -51,6 +52,8 @@ class lru
          return temp;
 
      }
+
+     
 
      int get(int k)
      {
