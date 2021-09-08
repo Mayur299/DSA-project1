@@ -106,7 +106,7 @@ string diff(string a,string b){
 
 
 
-string multiply(string a, string b) {
+string mult(string a, string b) {
         if (a=="0"||b=="0") {
             return "0";
         }
@@ -183,48 +183,47 @@ string fact(int num) {
 struct Node
 {
     string s;
-    struct Node* next;
+    Node* next;
 };
-struct Node* top;
+ struct Node* stc=NULL;
  
-void push(int data)
+void push(string data)
 {
     struct Node* temp;
     temp=new Node();
-    temp->data=data;
-      temp->next=top;
-    top=temp;
+    temp->s=data;
+      temp->next=stc;
+    stc=temp;
 }
-int isEmpty()
+int isempty()
 {
-    return top==NULL;
+    return stc==NULL;
 }
  
-int peek()
+string top()
 {
-    if (!isEmpty())
-        return top->data;
+    if (!isempty())
+        return stc->s;
     else
-        return -1;
+        return "";
 }
  
 void pop()
 {
     struct Node* temp;
-    if (top == NULL)
+    if (stc == NULL)
     {
         return ;
     }
     else
     {
          
-        temp=top;
-        top=top->next;
+        temp=stc;
+        stc=stc->next;
         temp->next=NULL;
         free(temp);
     }
 }
-
 
 int precedence(char operate) {
 	if (operate == '+' || operate == '-')
@@ -361,11 +360,52 @@ string eval(string s)
 
 int main()
 {
-	string s1;
-	cin>>s1;
-	
+	int op;
+    cin>>op;
+    if(op==1)
+    {
+        string s1;
+        cin>>s1;
+        string s2;
+        cin>>s2;
+        string s3;
+        
 
+    }
 
-	//cout<<diff(s1,s2)<<endl;
+   else if(op==2)
+    {
+        string s1;
+        cin>>s1;
+        string s2;
+        cin>>s2;
+        string s3;
+        
+
+    }
+
+    else if(op==3)
+    {
+        int s1;
+        cin>>s1;
+        
+        cout<<fact(s1)<<endl;
+        
+
+    }
+
+    else if(op==4)
+    {
+        string s1;
+        cin>>s1;
+        stc=NULL;
+        string inm=pf(s1);
+        //cout<<inm<<endl;
+        stc=NULL;
+        string calc=eval(inm);
+        cout<<calc<<endl;
+        
+
+    }
 
 }
