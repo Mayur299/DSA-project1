@@ -361,11 +361,52 @@ string eval(string s)
 
 int main()
 {
-	string s1;
-	cin>>s1;
-	
+	int op;
+    cin>>op;
+    if(op==1)
+    {
+        string s1;
+        cin>>s1;
+        string s2;
+        cin>>s2;
+        string s3;
+        
 
+    }
 
-	//cout<<diff(s1,s2)<<endl;
+   else if(op==2)
+    {
+        string s1;
+        cin>>s1;
+        string s2;
+        cin>>s2;
+        string s3;
+        
+
+    }
+
+    else if(op==3)
+    {
+        string s1;
+        cin>>s1;
+        
+        cout<<fact(s1)<<endl;
+        
+
+    }
+
+    else if(op==4)
+    {
+        string s1;
+        cin>>s1;
+        stc=NULL;
+        string inm=pf(s1);
+        cout<<inm<<endl;
+        stc=NULL;
+        string calc=eval(inm);
+        cout<<calc<<endl;
+        
+
+    }
 
 }
