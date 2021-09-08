@@ -372,7 +372,6 @@ int main()
         
 
     }
-<<<<<<< HEAD
 
    else if(op==2)
     {
@@ -395,41 +394,13 @@ int main()
 
     }
 
-=======
-
-   else if(op==2)
-    {
-        string s1;
-        cin>>s1;
-        string s2;
-        cin>>s2;
-        string s3;
-        
-
-    }
-
-    else if(op==3)
-    {
-        string s1;
-        cin>>s1;
-        
-        cout<<fact(s1)<<endl;
-        
-
-    }
-
->>>>>>> 9a66a89b567ba3097739c72ccbe44352758751ce
     else if(op==4)
     {
         string s1;
         cin>>s1;
         stc=NULL;
         string inm=pf(s1);
-<<<<<<< HEAD
         //cout<<inm<<endl;
-=======
-        cout<<inm<<endl;
->>>>>>> 9a66a89b567ba3097739c72ccbe44352758751ce
         stc=NULL;
         string calc=eval(inm);
         cout<<calc<<endl;
