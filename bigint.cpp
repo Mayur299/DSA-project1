@@ -226,6 +226,132 @@ void pop()
 }
 
 
+int precedence(char operate) {
+	if (operate == '+' || operate == '-')
+		return 1;
+	else if (operate == 'x')
+		return 2;
+    else;
+	return 0;
+}
+
+
+bool isOperand(char x)
+{
+	if (x == '+' || x == '-' || x == 'x')
+		return false;
+	return true;
+}
+
+
+string pf(string s) {
+    int l=s.length();
+    int i;
+    string infy="";
+    for(i=0;i<l;i++)
+    {
+        if(isOperand(s[i]))
+        infy.push_back(s[i]);
+
+        else
+        {
+            infy.push_back('#');
+            while((!isempty())&&(precedence(top()[0])>=precedence(s[i])))
+            {
+                string temp=top();
+                pop();
+                char c=temp[0];
+                infy.push_back(c);
+                infy.push_back('#');
+
+            }
+            string t2="";
+            t2.push_back(s[i]);
+            push(t2);
+        }
+    }
+    infy.push_back('#');
+    while(!isempty())
+    {
+        string x=top();
+        pop();
+        infy.push_back(x[0]);
+        infy.push_back('#');
+    }
+
+    return infy;
+
+}
+
+string eval(string s)
+{
+    int l=s.length();
+    int i=0;
+    while(i<l)
+    {
+        if((s[i]!='#')&&(isOperand(s[i])) )
+        {
+            string str="";
+            while(s[i]!='#')
+            {
+                str.push_back(s[i]);
+                i++;
+            }
+            push(str);
+            i++;
+        }
+
+        else if(s[i]=='#')
+        i++;
+
+        else if(s[i]=='+')
+        {
+            string s1=top();
+            pop();
+            string s2=top();
+            pop();
+            string s3=sum(s2,s1);
+            push(s3);
+
+            i++;
+
+        }
+
+        else if(s[i]=='-')
+        {
+            string s1=top();
+            pop();
+            string s2=top();
+            pop();
+            string s3=diff(s2,s1);
+            push(s3);
+
+            i++;
+
+        }
+
+        else 
+        {
+            string s1=top();
+            pop();
+            string s2=top();
+            pop();
+            string s3=mult(s2,s1);
+            push(s3);
+
+            i++;
+
+        }
+
+
+    }
+    
+
+    string ans=top();
+    return ans;
+}
+
+
 
 
 
