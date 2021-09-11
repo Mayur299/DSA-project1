@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<unordered_map>
 using namespace std;
 
 class lfu
@@ -70,8 +71,8 @@ class lfu
 
     int cap;
     int freqmin;
-    map<int,node*>m1;
-    map<int,dll*>m2;
+    unordered_map<int,node*>m1;
+    unordered_map<int,dll*>m2;
 
     lfu(int c)
     {
