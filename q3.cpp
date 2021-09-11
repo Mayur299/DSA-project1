@@ -73,15 +73,21 @@ template <typename T>
        int r=sparse[0][0];
        int c=sparse[0][1];
        int count=sparse[0][2];
-       T arr[r][c];
-       int i,j;
-       for(i=0;i<r;i++)
-       {
-           for(j=0;j<c;j++)
-           {
-               arr[i][j]=0;
-           }
-       }
+       T **arr;
+        int i,j;
+        arr=new T*[r];
+    
+        for(i=0;i<r;i++)
+        {
+        arr[i]=new T[c];
+        }
+        for(i=0;i<r;i++)
+        {
+            for(j=0;j<c;j++)
+            {
+                arr[i][j]=0;
+            }
+        }
        for(int i=1;i<=count;i++)
        {
            arr[int(sparse[i][0])][int(sparse[i][1])]=sparse[i][2];
@@ -97,14 +103,14 @@ template <typename T>
        }
 
 
-       /*for(i=0;i<r;i++)
+      /* for(i=0;i<r;i++)
        {
            for(j=0;j<c;j++)
            {
                cout<<arr[i][j]<<" ";
            }
            cout<<endl;
-       }*/
+       } */
 
    }
 
@@ -113,7 +119,7 @@ template <typename T>
    {
         int* cc= new int[int(s[0][1])];
         int i;
-        for(i=1;i<s[0][1];i++)
+        for(i=0;i<s[0][1];i++)
         {
              cc[i]=0;
         }
@@ -150,9 +156,9 @@ template <typename T>
    T** add(T** p,T** q)
 
    {
-        T** s=new T*[int(p[0][0])+int(p[0][1])+1];
+        T** s=new T*[int(p[0][2])+int(q[0][2])+1];
         int i,j,k;
-        for(i=0;i<=(int(p[0][0])+int(p[0][1]));i++)
+        for(i=0;i<=(int(p[0][2])+int(q[0][2]));i++)
         {
             s[i]=new T[3];
         }
@@ -202,13 +208,18 @@ template <typename T>
                 }
 
                 else
-                {
+                {   if((p[i][2]+q[j][2])!=0)                                               
+
+                    {
                     s[k][0]=p[i][0];
                     s[k][1]=p[i][1];
                     s[k][2]=p[i][2]+q[j][2];
+                    k++;
+                    }
                     i++;
                     j++;
-                    k++;
+                
+                    
                 }
 
             }
@@ -349,18 +360,19 @@ int main()
      /*
      float**a=input<float>();
      float**b=input<float>();
-     float**tb=transpose<float>(b);                         // umcomment this part for multiplication 
+     float**tb=transpose<float>(b);                         // uncomment this part for multiplication 
      float**ans=mul<float>(a,tb);
-     output<float>(ans);           */
-
+     output<float>(ans);           
+*/
 
 
 
       /*
      float**a=input<float>();
      float**b=input<float>();
-     float**ans=mul<float>(a,b);                             //uncomment this part for addtion
-     output<float>(ans);            */
+     float**ans=add<float>(a,b);                             //uncomment this part for addtion
+     output<float>(ans);    
+     */        
 
 
      return 0;
