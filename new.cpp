@@ -1,4 +1,6 @@
-#include<bits/stdc++.h>
+
+#include<iostream>
+#include<unordered_map>
 using namespace std;
 
 class lru
@@ -13,7 +15,7 @@ class lru
          ll* prev;
 
      };
-     map<int,ll*>m;
+     unordered_map<int,ll*>m;
      ll* head;
      ll* last;
 
