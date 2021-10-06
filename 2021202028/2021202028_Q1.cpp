@@ -547,8 +547,8 @@ struct newnum
 		
 		    
 		    int x=num[l];
-            int a=l-1;
-            int b=n.l-1;
+            int a=l;
+            int b=n.l;
             
 		
 		    newnum q=*this; 
@@ -557,7 +557,7 @@ struct newnum
 		
             int i;
 
-		    for(i=1;i<=(a-b);++i)
+		    for(i=1;i<a-b+1;++i)
             {
                 p=p*10;
             }
